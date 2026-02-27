@@ -57,14 +57,14 @@ public class PalindromeCheckerApp {
         String word5 = sc.nextLine();
         Stack<Character> stack = new Stack<>();
 
-        for (char c : word.toCharArray())
+        for (char c : word5.toCharArray())
             stack.push(c);
 
         String reverse5 = "";
         while (!stack.isEmpty())
             reverse5 += stack.pop();
 
-        System.out.println(word.equalsIgnoreCase(reverse5) ? "Palindrome" : "Not Palindrome");
+        System.out.println(word5.equalsIgnoreCase(reverse5) ? "Palindrome" : "Not Palindrome");
 
         System.out.println("================= UC6 : Queue+Stack fairness Check =================");
 
@@ -75,18 +75,37 @@ public class PalindromeCheckerApp {
 
         for (char c : word.toCharArray()) {
             queue.add(c);
-            stack.push(c);
+            stk.push(c);
         }
 
         boolean palindrome1 = true;
         while (!queue.isEmpty()) {
-            if (!queue.remove().equals(stack.pop())) {
+            if (!queue.remove().equals(stk.pop())) {
                 palindrome1 = false;
                 break;
             }
         }
 
         System.out.println(palindrome1 ? "Palindrome" : "Not Palindrome");
+
+        System.out.println("================= UC7 : Deque Based Palindrome Checker =================");
+
+        System.out.print("Enter word: ");
+        String word7 = sc.nextLine();
+        Deque<Character> deque = new ArrayDeque<>();
+
+        for (char c : word7.toCharArray())
+            deque.add(c);
+
+        boolean palindrome7 = true;
+        while (deque.size() > 1) {
+            if (!deque.removeFirst().equals(deque.removeLast())) {
+                palindrome7 = false;
+                break;
+            }
+        }
+
+        System.out.println(palindrome7 ? "Palindrome" : "Not Palindrome");
 
     }
 }
