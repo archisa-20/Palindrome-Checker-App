@@ -27,6 +27,7 @@ public class PalindromeCheckerApp {
         System.out.print("Enter word: ");
         String input = sc.nextLine();
         String reversed = "";
+
         for (int i = input.length() - 1; i >= 0; i--)
             reversed += input.charAt(i);
         if (word.equals(reversed)) {
