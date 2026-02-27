@@ -65,5 +65,28 @@ public class PalindromeCheckerApp {
             reverse5 += stack.pop();
 
         System.out.println(word.equalsIgnoreCase(reverse5) ? "Palindrome" : "Not Palindrome");
+
+        System.out.println("================= UC6 : Queue+Stack fairness Check =================");
+
+        System.out.print("Enter word: ");
+        String word6 = sc.nextLine();
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stk = new Stack<>();
+
+        for (char c : word.toCharArray()) {
+            queue.add(c);
+            stack.push(c);
+        }
+
+        boolean palindrome1 = true;
+        while (!queue.isEmpty()) {
+            if (!queue.remove().equals(stack.pop())) {
+                palindrome1 = false;
+                break;
+            }
+        }
+
+        System.out.println(palindrome1 ? "Palindrome" : "Not Palindrome");
+
     }
 }
