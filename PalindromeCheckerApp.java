@@ -35,5 +35,20 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(input + " is NOT Palindrome");
         }
+
+        // ================= UC4 : Character Array Based Validation =================
+        System.out.print("Enter word: ");
+        String word4 = sc.nextLine();
+
+        char[] arr = word4.toCharArray();
+        boolean palindrome = true;
+
+        for (int i = 0; i < arr.length / 2; i++) {
+            if (arr[i] != arr[arr.length - 1 - i]) {
+                palindrome = false;
+                break;
+            }
+        }
+        System.out.println(palindrome ? "Palindrome" : "Not Palindrome");
     }
 }
