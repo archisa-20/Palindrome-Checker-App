@@ -10,7 +10,7 @@ public class PalindromeCheckerApp {
         System.out.println("Version: 1.0");
         System.out.println("System initialized successfully");
 
-        // ================= UC2: Hardcoded Palindrome Validation =================
+        System.out.println("================= UC2: Hardcoded Palindrome Validation =================");
         String word = "madam";
         String reverse = "";
         System.out.println("Input Text: madam");
@@ -23,20 +23,20 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(word + " is NOT Palindrome");
         }
-        // ================= UC3: Reversed String Based palindrome Check =================
+        System.out.println("================= UC3: Reversed String Based palindrome Check =================");
         System.out.print("Enter word: ");
         String input = sc.nextLine();
-        String reversed = "";
+        String reverse3 = "";
 
         for (int i = input.length() - 1; i >= 0; i--)
-            reversed += input.charAt(i);
-        if (word.equals(reversed)) {
+            reverse3 += input.charAt(i);
+        if (word.equals(reverse3)) {
             System.out.println(input + " is Palindrome");
         } else {
             System.out.println(input + " is NOT Palindrome");
         }
 
-        // ================= UC4 : Character Array Based Validation =================
+        System.out.println("================= UC4 : Character Array Based Validation =================");
         System.out.print("Enter word: ");
         String word4 = sc.nextLine();
 
@@ -50,5 +50,20 @@ public class PalindromeCheckerApp {
             }
         }
         System.out.println(palindrome ? "Palindrome" : "Not Palindrome");
+
+        System.out.println("================= UC5 : Stack Based Validation =================");
+
+        System.out.print("Enter word: ");
+        String word5 = sc.nextLine();
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : word.toCharArray())
+            stack.push(c);
+
+        String reverse5 = "";
+        while (!stack.isEmpty())
+            reverse5 += stack.pop();
+
+        System.out.println(word.equalsIgnoreCase(reverse5) ? "Palindrome" : "Not Palindrome");
     }
 }
