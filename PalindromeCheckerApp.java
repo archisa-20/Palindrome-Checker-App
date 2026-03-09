@@ -1,21 +1,26 @@
-// File: UseCase9PalindromeCheckerApp.java
+// File: UseCase10PalindromeCheckerApp.java
 
-public class PalindromeCheckerApp {
+public class UseCase10PalindromeCheckerApp {
 
-    // Recursive method to check palindrome
-    public static boolean isPalindrome(String str, int start, int end) {
-        // Base condition: if start >= end, it's a palindrome
-        if (start >= end) {
-            return true;
+    // Method to normalize string: remove spaces and convert to lowercase
+    public static String normalizeString(String str) {
+        // Remove all spaces using regex and convert to lowercase
+        return str.replaceAll("\\s+", "").toLowerCase();
+    }
+
+    // Method to check palindrome
+    public static boolean isPalindrome(String str) {
+        int start = 0;
+        int end = str.length() - 1;
+
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
         }
-
-        // If mismatch found, not a palindrome
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call: move inward
-        return isPalindrome(str, start + 1, end - 1);
+        return true;
     }
 
     public static void main(String[] args) {
@@ -23,10 +28,14 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        if (isPalindrome(input, 0, input.length() - 1)) {
-            System.out.println("The string \"" + input + "\" is a palindrome.");
+        // Normalize input
+        String normalized = normalizeString(input);
+
+        // Check palindrome
+        if (isPalindrome(normalized)) {
+            System.out.println("The string \"" + input + "\" is a palindrome (ignoring case and spaces).");
         } else {
-            System.out.println("The string \"" + input + "\" is NOT a palindrome.");
+            System.out.println("The string \"" + input + "\" is NOT a palindrome (ignoring case and spaces).");
         }
 
         sc.close();
