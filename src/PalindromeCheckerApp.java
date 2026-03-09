@@ -1,5 +1,4 @@
-// File: UseCase8PalindromeCheckerApp.java
-
+// UC8
 class Node {
     char data;
     Node next;
@@ -28,7 +27,6 @@ class LinkedListPalindromeChecker {
             }
         }
     }
-
     // Check if linked list is palindrome
     public boolean isPalindrome() {
         if (head == null || head.next == null) {
